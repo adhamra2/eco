@@ -4,15 +4,17 @@ import React from 'react'
 function Modal({product}) {
 
   return (
-    <div className="modal-box flex ">
-    <img className='w-[300px] h-[300px] border' src={product.productImage[0].url} alt={product.productName} />
-      <div className='ml-8 w-[300px]'>
+    <div className="modal-box flex flex-wrap p-5 md:p-10 w-full h-[100%]">
+      {product.productImage && product.productImage[0] && (
+        <img className='w-[300px] productImage h-[300px] border' src={product.productImage[0].url} alt={product.productName} />
+      )}
+      <div className='md:ml-8 w-[300px]'>
         <h1 className='font-bold text-[18px]'>{product.productName}</h1>
-        <h1 className='font-bold my-3'>${product.productPrice}</h1>
+        <h1 className='font-bold my-3'>₪{product.productPrice}</h1>
         <h1 className='mb-5'>{product.productDescription}</h1>
         <div className='w-auto h-[1px] bg-black opacity-[0.2]'></div>
-        <div className='flex gap-2 mt-5 w-auto'>
-        <div className='flex items-center'>
+        <div className='flex gap-2 mt-5 w-auto mb-3'>
+          <div className='flex items-center'>
             <div className='w-8 h-8 rounded-l-md  border border-gray-300 flex items-center justify-center'>
               <h1 className='text-black'>-</h1>
             </div>
@@ -22,11 +24,11 @@ function Modal({product}) {
             <div className='w-8 h-8 rounded-r-md bg-red-600  border border-gray-300 flex items-center justify-center'>
               <h1 className='text-white'>+</h1>
             </div>
-        </div>
-        <a href="#" className='bg-red-500 px-10 h-8 flex items-center justify-center rounded-sm text-white'>Add</a>
+          </div>
+          <a href="#" className='bg-red-500 px-10 h-8 flex items-center justify-center rounded-sm text-white'>Add</a>
 
-        <a href="#"> {ShoppingCart} </a>
-      </div>
+          <a href="#" className='border border-gray-300 h-8 p-2 flex items-center justify-center rounded-md'> <ShoppingCart/> </a>
+        </div>
       </div>
 
       <form method="dialog">
@@ -37,4 +39,4 @@ function Modal({product}) {
   )
 }
 
-export default Modal
+export default Modal;

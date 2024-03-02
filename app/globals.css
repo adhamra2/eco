@@ -89,6 +89,13 @@ ul li:hover {
   border: 1px solid #ffcaa6;
   background-color: #ffcaa6;
  }
+
+ @media (max-width: 768px) {
+    .productImage {
+      width: 230px;
+      height: 200px;
+    }
+ }
  
 
 @layer base {
